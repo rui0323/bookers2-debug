@@ -30,6 +30,9 @@
             <% end %>
             </p>
             <% end %>
+            <p>
+            <%= link_to "コメント数：#{book.post_comments.count} ", book_path(book.id) %>
+            </p>
         </td>
        
       </tr>
