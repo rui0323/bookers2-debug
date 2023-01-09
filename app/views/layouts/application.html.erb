@@ -19,6 +19,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
     <% if user_signed_in? %>
+    
     <li>
     <%#= link_to '投稿フォーム', new_book_path %>
   </li>
@@ -72,6 +73,13 @@
       </div>
       </nav>
      </header>
+    <div class="container ">
+  	<div class="row">
+  	<div class="offset-md-3" >
+    <%= render 'searches/search' %>
+    </div> 
+    </div>
+    </div>
     <%= yield %>
     <footer>
   <div class="container mt-5">
