@@ -1,0 +1,20 @@
+  <% book.post_comments.each do |post_comment| %>
+            <%= link_to(book.user) do %>
+            <p><%= image_tag post_comment.user.get_profile_image(100,100) %></p>
+            <%= book.user.name %>
+            <% end %>
+            
+            
+            
+            <%#= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+            <% if post_comment.user == current_user %>
+            <%= link_to "削除", book_post_comment_path(post_comment.book, post_comment), method: :delete,remote: true,class:"btn btn-danger" %>
+            <% end %>
+  <% end %>
+            
+            <%= form_with model:[book, post_comment], local: false do |f| %>
+            <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "w-100" %>
+            <%= f.submit "送信する" %>
+            <% end %>
+            
+            
